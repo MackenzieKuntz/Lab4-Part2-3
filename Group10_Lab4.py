@@ -30,11 +30,12 @@ soln70 = scint.solve_ivp(deriv_theta, (0,100), theta70, t_eval=time, events= amp
 # Plot
 fig = plt.figure()
 ax = fig.add_subplot()
-t70 = ax.plot(soln70.t, soln70.y[1], label = 'Initial theta = 70 degrees')
-t40 = ax.plot(soln40.t, soln40.y[1], label = "Initial theta = 40 degrees")
-t10 = ax.plot(soln10.t,soln10.y[1], label = "Initial theta = 10 degrees")
-ax.set_xlabel("Time")
-ax.set_ylabel("Theta")
+t70 = ax.plot(soln70.t, soln70.y[1], label = 'Initial \u03B8 = 70\u00B0')
+t40 = ax.plot(soln40.t, soln40.y[1], label = "Initial \u03B8 = 40\u00B0")
+t10 = ax.plot(soln10.t,soln10.y[1], label = "Initial \u03B8 = 10\u00B0")
+ax.set_xlabel("Time (t)")
+ax.set_ylabel("Swing Amplitude (\u03B8)")
+plt.title("Swing Amplitude by Initial Conditions")
 plt.legend(loc = 'upper right')
 
 
@@ -69,6 +70,7 @@ avg_period = [avg_period_10,avg_period_40,avg_period_70]
 period = plt.scatter(exact_period, avg_period)
 ax2.set_xlabel("T(exact)")
 ax2.set_ylabel("T(average)")
+plt.title("Period Estimate Compared to Exact Period")
 plt.errorbar(exact_period , avg_period, yerr = [std_period_10,std_period_40,std_period_70])
 plt.show()
 
